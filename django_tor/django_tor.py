@@ -23,5 +23,5 @@ def run_with_tor():
         sys.exit()
 
     print(f" * Running on http://{app_tor.onion_host}")
-    return app_tor.port
+    return app_tor.onion_host, app_tor.port
 
