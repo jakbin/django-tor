@@ -26,11 +26,6 @@ pip install django-tor
 
 ## Uses
 
-set ALLOWED_HOSTS to * in settings.py 
-```
-ALLOWED_HOSTS = ['*']
-```
-
 add this lines in manage.py in your django project.
 ```py
 from django_tor import run_with_tor
