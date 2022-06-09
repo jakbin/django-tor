@@ -26,14 +26,19 @@ pip install django-tor
 
 ## Uses
 
+set ALLOWED_HOSTS to * in settings.py 
+```
+ALLOWED_HOSTS = ['*']
+```
+
 add this lines in manage.py in your django project.
 ```py
 from django_tor import run_with_tor
-
-port = run_with_tor()
-
 from django.core.management.commands.runserver import Command as runserver
-runserver.default_port = str(port)
+
+if sys.argv[1] == 'runserver':
+    port = run_with_tor()
+    runserver.default_port = str(port)
 ```
 
 Run django server with noreload argument.
