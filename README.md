@@ -37,8 +37,10 @@ from django_tor import run_with_tor
 from django.core.management.commands.runserver import Command as runserver
 
 if sys.argv[1] == 'runserver':
-    port = run_with_tor()
+    host, port = run_with_tor()
     runserver.default_port = str(port)
+    from djangoTor.settings import ALLOWED_HOSTS
+    ALLOWED_HOSTS.append(host)
 ```
 
 Run django server with noreload argument.
